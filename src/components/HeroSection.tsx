@@ -146,11 +146,11 @@ const handleSubmit = async (e: React.FormEvent) => {
             </ul>
             
             <div>
-              <h3 className="text-lg font-bold text-[#1a1a1a] mb-4 ml-30">
+              <h3 className="text-lg font-bold text-[#1a1a1a] mb-4">
                 Next Webinar Starts in
               </h3>
               
-              <div className="flex gap-6 ml-30">
+              <div className="flex gap-6">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-[#C41E3A]">
                     {String(timeLeft.days).padStart(2, "0")}

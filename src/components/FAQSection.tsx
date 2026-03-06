@@ -6,67 +6,67 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     question: "Who can join this course? Is it suitable for freshers and non-IT backgrounds?",
-    answer: "This course is designed for anyone who wants to build a career in AI/ML. It is suitable for freshers, working professionals, career switchers, non-IT, and non-engineering backgrounds. No prior experience in AI or Machine Learning is required, as the course starts from fundamentals and gradually moves to advanced concepts."
+    answer: "This course is designed for anyone who wants to build a career in AI/ML. It is suitable for freshers, working professionals, career switchers, non-IT, and non-engineering backgrounds. No prior experience in AI or Machine Learning is required, as the course starts from fundamentals and gradually moves to advanced concepts.",
   },
   {
     question: "What job roles can I apply for after completion?",
-    answer: "After completing this course, you can apply for roles such as Machine Learning Engineer, Data Scientist, AI Engineer, Deep Learning Engineer, NLP Engineer, Computer Vision Engineer, and MLOps Engineer."
+    answer: "After completing the course, students can apply for various roles such as: Data Analyst, Data Scientist, ML Engineer, AI Engineer, Lead ML Engineer (for experienced professionals), ML Architect (for experienced professionals). The exact role a student can apply for depends on their prior experience, skill level, project exposure, and overall performance during and after the course.",
   },
   {
     question: "What is the average package of placed students?",
-    answer: "Our placed students have received packages ranging from 6 LPA to 25+ LPA depending on their experience, skills, and interview performance."
+    answer: "Salary packages vary based on individual skills, prior experience, project quality, and interview performance. Freshers / Entry-level candidates: ₹6 LPA – ₹15 LPA, Professionals with 2–5 years of experience: ₹9 LPA – ₹30 LPA, Professionals with 5–10 years of experience: ₹30 LPA – ₹75 LPA, Professionals with 10+ years of experience: ₹75+ LPA.",
   },
   {
     question: "How will this course help my career?",
-    answer: "This course provides industry-relevant skills, hands-on projects, and interview preparation that will help you transition into AI/ML roles or advance in your current career."
+    answer: "This course helps you build strong AI/ML foundations, gain hands-on project experience, and develop industry-relevant skills. It prepares you to confidently apply for AI/ML roles, perform well in interviews, and grow in your career with practical knowledge and guidance.",
   },
   {
     question: "Do you provide placement assistance, mock interviews, or internships?",
-    answer: "Yes, we provide comprehensive placement assistance including resume review, mock interviews, and internship opportunities with our partner companies."
+    answer: "Yes. We provide placement assistance, including: Resume guidance, Interview preparation, Mock interviews. Internship opportunities may also be provided based on student performance and availability. Placement outcomes depend on individual skills, effort, and performance.",
   },
   {
     question: "What topics are covered in the course syllabus?",
-    answer: "The syllabus covers Python, Statistics, Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, LLMs, MLOps, and end-to-end project development."
+    answer: "The course syllabus is comprehensive and industry-oriented. It includes: Python Programming, Advanced SQL and Data Modeling, Exploratory Data Analysis (EDA), Statistics & Mathematics for ML, Machine Learning, Deep Learning, Natural Language Processing (NLP), Generative AI & Large Language Models (LLMs), Agentic AI, MLOps, Real-time projects. A detailed syllabus document will be shared separately.",
   },
   {
     question: "Are hands-on projects and real-time industry projects included?",
-    answer: "Yes, the course includes multiple hands-on projects and one comprehensive end-to-end capstone project based on real industry use cases."
+    answer: "Yes. The course includes multiple hands-on mini-projects to strengthen practical understanding. In addition, students will work on real-time, industry-oriented projects to gain practical exposure and build a strong project portfolio.",
   },
   {
     question: "What is the course duration and access period?",
-    answer: "The course duration is 11-12 months with lifetime access to all recorded sessions and materials."
+    answer: "The course duration is 12 months, depending on the batch schedule. Students will receive 5 years of LMS access, which includes course recordings and learning materials. This allows students to revise concepts and continue learning even after course completion.",
   },
   {
     question: "Is the course online, and will I get recorded sessions?",
-    answer: "Yes, the course is conducted online with live instructor-led sessions. All sessions are recorded and available in your LMS for future reference."
+    answer: "The course is conducted in online live mode. If you miss any class, recorded sessions will be provided, so you can catch up at your convenience without missing important topics. ",
   },
   {
     question: "What support and guidance will I receive during the course?",
-    answer: "You will receive dedicated mentor support, doubt clearing sessions, code reviews, and career guidance throughout the course."
+    answer: "Students receive continuous support throughout the course, including: Doubt-clearing sessions, Instructor and mentor guidance, Support through live classes and communication channels. This ensures students stay confident and clear with concepts at every stage.",
   },
   {
     question: "Are assessments, exams, and certification provided?",
-    answer: "Yes, regular assessments and quizzes are conducted. Upon successful completion, you will receive a course completion certificate."
+    answer: "Yes. The course includes regular assignments, assessments, and evaluations to track learning progress. After successful completion of the course, students will receive a Course Completion Certificate from Dandes Academy.",
   },
   {
     question: "Who is the instructor?",
-    answer: "The course is led by Srinivas Dande, who has over 20 years of experience in product development, system architecture, and technical training."
+    answer: "Course is taught by Srinivas Dande, Founder & Instructor at Dandes Academy. He brings 20+ years of industry and teaching experience, with a strong focus on explaining concepts clearly from basics to advanced levels. Course is designed based on real-world industry requirements, helping students gain both theoretical understanding and practical, job-ready skills.",
   },
   {
     question: "What are the prerequisites for this course?",
-    answer: "No prior programming or AI/ML experience is required. Basic computer literacy and a willingness to learn are sufficient."
+    answer: "There are no strict prerequisites for joining this course. Basic computer knowledge and willingness to learn are sufficient. All required concepts such as programming fundamentals, mathematics, and statistics needed for AI/ML are covered as part of the course.",
   },
   {
     question: "What is the fee structure, installment options, and refund policy?",
-    answer: "We offer flexible payment options including EMI. Please contact our admissions team for detailed fee structure and refund policy information."
+    answer: "The fee structure and installment options will be clearly explained by our sales team during the counseling call. Refund Policy: If a student is not satisfied with the course content or delivery, a 100% refund will be provided within 30 days of enrollment, without asking any questions.",
   },
   {
     question: "Can I switch batches if I miss classes?",
-    answer: "Yes, batch switching is allowed. You can move to another batch if you miss classes due to unavoidable circumstances."
+    answer: "Yes, batch switching is allowed. This flexibility ensures that students do not miss learning opportunities due to unavoidable circumstances.",
   },
   {
     question: "How is this course different from other online AI/ML courses?",
-    answer: "Our course stands out with live instructor-led sessions, structured curriculum, hands-on projects, personalized mentorship, and comprehensive placement support."
+    answer: "Unlike many other online AI/ML programs, this course offers: A structured and well-paced learning roadmap designed from fundamentals to advanced topics Live, interactive classes with direct instructor involvement, Continuous mentor support and dedicated doubt-clearing sessions, Hands-on mini-projects and real-time industry-oriented projects, Strong focus on interview preparation and placement assistance, This course emphasizes practical learning, personalized guidance, and longterm skill building, helping students stay consistent, confident, and job-ready. ",
   }
 ]
 

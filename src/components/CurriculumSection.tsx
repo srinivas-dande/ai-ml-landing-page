@@ -70,7 +70,9 @@ export default function CurriculumSection() {
                   <FileText className="w-5 h-5 text-[#C41E3A]" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400">Course {index === 6 || index === 7 ? 14 : course.number}</p>
+                  <p className="text-xs text-gray-400">
+                    Course {course.number}
+                  </p>
                   <p className="text-sm font-semibold text-gray-900">{course.title}</p>
                 </div>
               </article>
