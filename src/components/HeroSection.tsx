@@ -110,16 +110,16 @@ const handleSubmit = async (e: React.FormEvent) => {
   ]
 
   return (
-    <section className="w-full bg-[#F5F7FA]">
-      <div className="max-w-[1440px] mx-auto px-[70px] py-12">
+    <section className="w-full bg-[#F5F7FA] -mt-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-[70px] py-0">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Content */}
           <div className="flex-1">
-            <p className="text-[#C41E3A] text-sm font-medium mb-4">
+            <p className="text-[#C41E3A] text-sm font-medium mb-2">
               Free Webinar | For Students & Working Professionals
             </p>
             
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-2">
               <span className="text-[#C41E3A]">AI/ML</span>{" "}
               <span className="text-[#1a1a1a]">Career</span>
               <br />
@@ -150,30 +150,33 @@ const handleSubmit = async (e: React.FormEvent) => {
                 Next Webinar Starts in
               </h3>
               
-              <div className="flex gap-6">
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-[#C41E3A]">
+              <div className="flex gap-4 mt-2">
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-[#C41E3A]">
                     {String(timeLeft.days).padStart(2, "0")}
                   </p>
-                  <p className="text-sm text-[#6b7280] uppercase tracking-wide">Days</p>
+                  <p className="text-xs text-[#6b7280] uppercase tracking-wide">Days</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-[#C41E3A]">
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-[#C41E3A]">
                     {String(timeLeft.hours).padStart(2, "0")}
                   </p>
-                  <p className="text-sm text-[#6b7280] uppercase tracking-wide">Hrs</p>
+                  <p className="text-xs text-[#6b7280] uppercase tracking-wide">Hrs</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-[#C41E3A]">
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-[#C41E3A]">
                     {String(timeLeft.mins).padStart(2, "0")}
                   </p>
-                  <p className="text-sm text-[#6b7280] uppercase tracking-wide">Mins</p>
+                  <p className="text-xs text-[#6b7280] uppercase tracking-wide">Mins</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold text-[#C41E3A]">
+
+                <div className="text-center bg-white rounded-md px-4 py-2 shadow-sm">
+                  <p className="text-3xl font-bold text-[#C41E3A]">
                     {String(timeLeft.secs).padStart(2, "0")}
                   </p>
-                  <p className="text-sm text-[#6b7280] uppercase tracking-wide">Sec</p>
+                  <p className="text-xs text-[#6b7280] uppercase tracking-wide">Sec</p>
                 </div>
               </div>
             </div>
@@ -181,17 +184,17 @@ const handleSubmit = async (e: React.FormEvent) => {
           
           {/* Right Form */}
           <div id="lead-form" className="w-full lg:w-[480px] bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-xl font-bold text-[#1a1a1a] mb-3">
+            <h2 className="text-xl font-bold text-[#1a1a1a] mb-1">
               Free AI & Machine Learning Webinar
             </h2>
             
-            <p className="text-sm text-[#4a4a4a] leading-relaxed mb-4">
+            <p className="text-sm text-[#4a4a4a] leading-relaxed mb-2">
               Free AI/ML webinar for Professionals and Job Seekers to learn career
               roadmap, and how to start AI & Machine Learning with industry-focused
               training.
             </p>
             
-            <p className="text-sm text-[#4a4a4a] mb-6">
+            <p className="text-sm text-[#4a4a4a] mb-3">
               Join the live session on{" "}
               <span className="font-bold text-[#1a1a1a]">
                 {webinarTime
@@ -211,13 +214,13 @@ const handleSubmit = async (e: React.FormEvent) => {
             
 
             {successMsg && (
-  <div
-    className="mb-4 p-4 rounded-lg border border-green-300 bg-green-50 text-sm font-semibold text-center"
-    style={{ color: "#15803d" }}
-  >
-    ✓ {successMsg}
-  </div>
-)}
+              <div
+                className="mb-4 p-4 rounded-lg border border-green-300 bg-green-50 text-sm font-semibold text-center"
+                style={{ color: "#15803d" }}
+              >
+                ✓ {successMsg}
+              </div>
+            )}
             
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div>

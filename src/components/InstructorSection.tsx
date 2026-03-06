@@ -1,6 +1,6 @@
 export default function InstructorSection() {
   return (
-    <section className="relative bg-[#F5F7FA] min-h-[797px] overflow-hidden">
+    <section className="relative bg-[#F5F7FA] py-16 md:py-20 overflow-hidden">
       {/* Grid Pattern Background */}
       <div className="absolute inset-0">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +35,8 @@ export default function InstructorSection() {
         </svg>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[70px] py-16 md:py-24 relative z-10 h-full flex items-center">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-[70px] py-10 md:py-12 relative z-10 flex items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left - Profile Image */}
           <div className="relative flex-shrink-0">
             {/* Outer Ring */}
@@ -57,9 +57,9 @@ export default function InstructorSection() {
           </div>
 
           {/* Right - Content */}
-          <div className="flex-1 max-w-[700px]">
+          <div className="flex-1 max-w-[700px] ">
             {/* Label */}
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 ">
               <span className="w-3 h-3 bg-[#C41E3A] rounded-sm"></span>
               <span className="text-gray-700 font-medium">Meet Your Instructor</span>
             </div>

@@ -111,7 +111,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="bg-white py-16 md:py-20 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[70px]">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-[70px] -mt-15">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
