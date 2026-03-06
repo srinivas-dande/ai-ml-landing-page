@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image"
-import Link from "next/link"
 
 export default function Header() {
   return (
@@ -8,8 +7,8 @@ export default function Header() {
       
       <div className="max-w-[1440px] h-full mx-auto flex items-center justify-between px-4 sm:px-6 md:px-[70px] gap-4">
         
-        {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
+       
+        
           <Image
             src="/images/DA - Header.jpg"
             alt="Dandes Academy"
@@ -17,7 +16,7 @@ export default function Header() {
             height={50}
             className="object-contain w-[110px] sm:w-[130px] md:w-[160px]"
           />
-        </Link>
+        
 
         {/* Button */}
         <button
