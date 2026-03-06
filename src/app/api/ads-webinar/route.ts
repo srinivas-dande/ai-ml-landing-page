@@ -5,19 +5,43 @@ import nodemailer from "nodemailer"
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { fullName, email, phone } = body
 
-    
+    const {
+      fullName,
+      email,
+      phone,
+      utm_source,
+      utm_medium,
+      utm_campaign,
+      utm_term,
+      utm_content,
+      landing_page,
+      gclid,
+    } = body
+
+    if (!fullName || !email || !phone) {
+      return NextResponse.json(
+        { success: false, message: "Name, email and phone are required" },
+        { status: 400 }
+      )
+    }
+
     const lead = await prisma.adsOnWebinar.create({
       data: {
         fullName,
         email,
         phone,
+        utm_source: utm_source || null,
+        utm_medium: utm_medium || null,
+        utm_campaign: utm_campaign || null,
+        utm_term: utm_term || null,
+        utm_content: utm_content || null,
+        landing_page: landing_page || null,
+        gclid: gclid || null,
         status: "active",
       },
     })
 
-    
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -26,57 +50,83 @@ export async function POST(req: Request) {
       },
     })
 
-    
     await transporter.sendMail({
       from: `"Webinar Lead" <${process.env.EMAIL_USER}>`,
       to: ["inbound@pipelinevelocity.com", "hello@dandesacademy.com"],
-
       subject: "New AI/ML Webinar Registration",
       html: `
-  <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
-    
-    <div style="max-width:500px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
-      
-      <h2 style="color:#C41E3A; margin-bottom:20px;">
-        New AI/ML Webinar Registration
-      </h2>
+        <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
+          <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <h2 style="color:#C41E3A; margin-bottom:20px;">
+              New AI/ML Webinar Registration
+            </h2>
 
-      <p style="font-size:14px; color:#555; margin-bottom:20px;">
-        A new user has registered for the webinar. Details are below:
-      </p>
+            <table style="width:100%; border-collapse:collapse; font-size:14px;">
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Name</td>
+                <td style="padding:8px;">${fullName}</td>
+              </tr>
 
-      <table style="width:100%; border-collapse:collapse; font-size:14px;">
-        <tr>
-          <td style="padding:8px; font-weight:bold; color:#333;">Name</td>
-          <td style="padding:8px; color:#555;">${fullName}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px; font-weight:bold; color:#333;">Email</td>
-          <td style="padding:8px; color:#555;">${email}</td>
-        </tr>
-        <tr>
-          <td style="padding:8px; font-weight:bold; color:#333;">Phone</td>
-          <td style="padding:8px; color:#555;">${phone}</td>
-        </tr>
-      </table>
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Email</td>
+                <td style="padding:8px;">${email}</td>
+              </tr>
 
-      <hr style="margin:20px 0; border:none; border-top:1px solid #eee;" />
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Phone</td>
+                <td style="padding:8px;">${phone}</td>
+              </tr>
 
-      <p style="font-size:12px; color:#888;">
-        This lead was submitted from the AI/ML Webinar landing page.
-      </p>
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Source</td>
+                <td style="padding:8px;">${utm_source || "-"}</td>
+              </tr>
 
-    </div>
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Medium</td>
+                <td style="padding:8px;">${utm_medium || "-"}</td>
+              </tr>
 
-  </div>
-`,
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Campaign</td>
+                <td style="padding:8px;">${utm_campaign || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Keyword</td>
+                <td style="padding:8px;">${utm_term || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Ad Content</td>
+                <td style="padding:8px;">${utm_content || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">GCLID</td>
+                <td style="padding:8px;">${gclid || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Landing Page</td>
+                <td style="padding:8px;">${landing_page || "-"}</td>
+              </tr>
+            </table>
+
+            <hr style="margin:20px 0; border:none; border-top:1px solid #eee;" />
+
+            <p style="font-size:12px; color:#888;">
+              Lead submitted from AI/ML Webinar Landing Page.
+            </p>
+          </div>
+        </div>
+      `,
     })
 
     return NextResponse.json({
       success: true,
       data: lead,
     })
-
   } catch (error) {
     console.error(error)
 

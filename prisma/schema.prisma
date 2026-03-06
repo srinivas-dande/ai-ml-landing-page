@@ -267,12 +267,21 @@ model webinars {
 
 
 model AdsOnWebinar {
-  id        Int      @id @default(autoincrement())
-  fullName  String
-  email     String
-  phone     String
-  createdAt DateTime @default(now())
-  status    String   @default("active")
+  id           Int      @id @default(autoincrement())
+  fullName     String
+  email        String
+  phone        String
+
+  utm_source   String?
+  utm_medium   String?
+  utm_campaign String?
+  utm_term     String?
+  utm_content  String?
+  landing_page String?
+  gclid        String?
+
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
 
   @@map("Ads_Leads")
 }
