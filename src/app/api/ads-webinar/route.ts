@@ -29,7 +29,8 @@ export async function POST(req: Request) {
     
     await transporter.sendMail({
       from: `"Webinar Lead" <${process.env.EMAIL_USER}>`,
-      to: "inbound@pipelinevelocity.com",
+      to: ["inbound@pipelinevelocity.com", "hello@dandesacademy.com"],
+
       subject: "New AI/ML Webinar Registration",
       html: `
   <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
