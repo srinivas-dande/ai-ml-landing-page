@@ -21,14 +21,31 @@ export default function HeroSection() {
   })
 
   const handleChange = (e) => {
+  const { name, value } = e.target
+
+  if (name === "phone") {
+    const onlyNums = value.replace(/\D/g, "") // remove non-numbers
+
+    if (onlyNums.length <= 10) {
+      setFormData({
+        ...formData,
+        phone: onlyNums,
+      })
+    }
+  } else {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     })
   }
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (formData.phone.length !== 10) {
+      alert("Please enter a valid 10 digit phone number")
+      return
+    }
 
     const params = new URLSearchParams(window.location.search)
 
@@ -270,14 +287,16 @@ export default function HeroSection() {
                   Phone no.
                 </label>
                 <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+91 XXXXX XXXXX"
-                  required
-                  className="w-full px-4 py-3 border border-[#e5e7eb] rounded-lg text-sm placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:border-transparent"
-                />
+  type="tel"
+  name="phone"
+  value={formData.phone}
+  onChange={handleChange}
+  placeholder="Enter 10 digit phone number"
+  required
+  maxLength={10}
+  pattern="[0-9]{10}"
+  className="w-full px-4 py-3 border border-[#e5e7eb] rounded-lg text-sm placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:border-transparent"
+/>
               </div>
 
               <button
