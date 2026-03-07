@@ -24,7 +24,7 @@ export default function HeroSection() {
   const { name, value } = e.target
 
   if (name === "phone") {
-    const onlyNums = value.replace(/\D/g, "") // remove non-numbers
+    const onlyNums = value.replace(/\D/g, "") 
 
     if (onlyNums.length <= 10) {
       setFormData({

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export default function BrochureSection() {
 
@@ -14,47 +14,89 @@ export default function BrochureSection() {
     phone: ""
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
+
     const { name, value } = e.target
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }))
+    if (name === "phone") {
+
+      const onlyNums = value.replace(/\D/g, "")
+
+      if (onlyNums.length <= 10) {
+        setFormData({
+          ...formData,
+          phone: onlyNums
+        })
+      }
+
+    } else {
+
+      setFormData({
+        ...formData,
+        [name]: value
+      })
+
+    }
   }
 
   const handleSubmit = async (e) => {
-  e.preventDefault()
 
-  const res = await fetch("/api/brochure", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  })
+    e.preventDefault()
 
-  const data = await res.json()
+    if (formData.phone.length !== 10) {
+      alert("Please enter a valid 10 digit phone number")
+      return
+    }
 
-  if (data.success) {
-    
+    setLoading(true)
 
-    const link = document.createElement("a")
-    link.href = data.fileUrl
-    link.download = ""
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    const params = new URLSearchParams(window.location.search)
 
-    setMessage("Brochure downloaded successfully!")
+    const payload = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
 
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: ""
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+      gclid: params.get("gclid") || "",
+
+      landing_page: window.location.pathname
+    }
+
+    const res = await fetch("/api/brochure", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
     })
+
+    const data = await res.json()
+
+    if (data.success) {
+
+      const link = document.createElement("a")
+      link.href = data.fileUrl
+      link.download = ""
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+
+      setMessage("Brochure downloaded successfully!")
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: ""
+      })
+    }
+
+    setLoading(false)
   }
-}
 
   return (
     <section className="bg-[#F5F7FA] py-16 md:py-24">
@@ -62,7 +104,6 @@ export default function BrochureSection() {
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
 
-          {/* Left Content */}
           <div className="flex-1 max-w-[450px]">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
               Get the Detailed course{" "}
@@ -78,7 +119,6 @@ export default function BrochureSection() {
             </p>
           </div>
 
-          {/* Right Form */}
           <div className="w-full lg:w-[500px] bg-white rounded-2xl shadow-sm p-8">
 
             <form id="brochure-form" className="space-y-6" onSubmit={handleSubmit}>
@@ -123,10 +163,12 @@ export default function BrochureSection() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+91 XXXXX XXXXX"
+                  placeholder="Enter 10 digit phone number"
                   value={formData.phone}
                   onChange={handleChange}
                   required
+                  maxLength={10}
+                  pattern="[0-9]{10}"
                   className="w-full px-4 py-3 border border-gray-200 rounded-lg"
                 />
               </div>
@@ -140,15 +182,15 @@ export default function BrochureSection() {
               </button>
 
               {message && (
-  <div
-    className="mt-4 rounded-lg border px-4 py-3"
-    style={{ backgroundColor: "#ECFDF5", borderColor: "#86EFAC", color: "#15803D" }}
-  >
-    <p className="text-sm font-semibold">
-      {message}
-    </p>
-  </div>
-)}
+                <div
+                  className="mt-4 rounded-lg border px-4 py-3"
+                  style={{ backgroundColor: "#ECFDF5", borderColor: "#86EFAC", color: "#15803D" }}
+                >
+                  <p className="text-sm font-semibold">
+                    {message}
+                  </p>
+                </div>
+              )}
 
             </form>
           </div>
