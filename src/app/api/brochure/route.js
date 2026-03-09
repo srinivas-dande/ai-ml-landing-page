@@ -57,7 +57,7 @@ export async function POST(req) {
     await transporter.sendMail({
       from: `"Brochure Lead" <${process.env.EMAIL_USER}>`,
       to: [
-        
+        "inbound@pipelinevelocity.com",
         "hello@dandesacademy.com",
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
