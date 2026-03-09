@@ -15,6 +15,7 @@ export default function BrochureSection() {
   })
 
   const handleChange = (e) => {
+    
 
     const { name, value } = e.target
 
@@ -37,18 +38,23 @@ export default function BrochureSection() {
       })
 
     }
+    
   }
 
   const handleSubmit = async (e) => {
 
-    e.preventDefault()
+  e.preventDefault()
 
-    if (formData.phone.length !== 10) {
-      alert("Please enter a valid 10 digit phone number")
-      return
-    }
+  if (loading || message) return
 
-    setLoading(true)
+  if (formData.phone.length !== 10) {
+    alert("Please enter a valid 10 digit phone number")
+    return
+  }
+
+  setLoading(true)
+
+  try {
 
     const params = new URLSearchParams(window.location.search)
 
@@ -95,8 +101,17 @@ export default function BrochureSection() {
       })
     }
 
+  } catch (error) {
+
+    console.error(error)
+    alert("Something went wrong")
+
+  } finally {
+
     setLoading(false)
+
   }
+}
 
   return (
     <section className="bg-[#F5F7FA] py-16 md:py-24">
@@ -175,9 +190,11 @@ export default function BrochureSection() {
 
               <button
                 type="submit"
-                className="bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-8 rounded-lg flex items-center gap-3"
+                disabled={loading || !!message}
+                className={`bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-8 rounded-lg flex items-center gap-3
+                ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
               >
-                Download Brochure
+                {loading ? "Downloading..." : "Download Brochure"}
                 <ArrowRight className="w-4 h-4" />
               </button>
 

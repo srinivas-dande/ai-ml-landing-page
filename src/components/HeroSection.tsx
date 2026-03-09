@@ -11,7 +11,6 @@ export default function HeroSection() {
   })
 
   
-  
   const [webinarTime, setWebinarTime] = useState(null)
   const [successMsg, setSuccessMsg] = useState("")
   const [loading, setLoading] = useState(false)
