@@ -40,6 +40,7 @@ export async function POST(req: Request) {
         gclid: gclid || null,
         status: "active",
       },
+      
     })
 
     const transporter = nodemailer.createTransport({

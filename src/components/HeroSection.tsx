@@ -10,8 +10,11 @@ export default function HeroSection() {
     phone: "",
   })
 
-  const [successMsg, setSuccessMsg] = useState("")
+  
+  
   const [webinarTime, setWebinarTime] = useState(null)
+  const [successMsg, setSuccessMsg] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -42,10 +45,16 @@ export default function HeroSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (loading || successMsg) return
+
+    if (loading) return
+
     if (formData.phone.length !== 10) {
       alert("Please enter a valid 10 digit phone number")
       return
     }
+
+    setLoading(true)
 
     const params = new URLSearchParams(window.location.search)
 
@@ -89,6 +98,8 @@ export default function HeroSection() {
     } catch (error) {
       console.error(error)
       alert("Something went wrong. Please try again.")
+    } finally {
+      setLoading(false)   // ✅ IMPORTANT
     }
   }
 
@@ -245,7 +256,7 @@ export default function HeroSection() {
             {successMsg && (
               <div
                 className="mb-4 p-4 rounded-lg border border-green-300 bg-green-50 text-sm font-semibold text-center"
-                style={{ color: "#15803d" }}
+                style={{ color: "#16813d" }}
               >
                 ✓ {successMsg}
               </div>
@@ -287,23 +298,25 @@ export default function HeroSection() {
                   Phone no.
                 </label>
                 <input
-  type="tel"
-  name="phone"
-  value={formData.phone}
-  onChange={handleChange}
-  placeholder="Enter 10 digit phone number"
-  required
-  maxLength={10}
-  pattern="[0-9]{10}"
-  className="w-full px-4 py-3 border border-[#e5e7eb] rounded-lg text-sm placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:border-transparent"
-/>
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Enter 10 digit phone number"
+                  required
+                  maxLength={10}
+                  pattern="[0-9]{10}"
+                  className="w-full px-4 py-3 border border-[#e5e7eb] rounded-lg text-sm placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#C41E3A] focus:border-transparent"
+                />
               </div>
 
               <button
                 type="submit"
-                className="bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2 transition-colors"
+                disabled={loading || !!successMsg}
+                className={`bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2 transition-colors
+                ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
               >
-                Register for FREE AI/ML Webinar
+                {loading ? "Registering..." : "Register for FREE AI/ML Webinar"}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
