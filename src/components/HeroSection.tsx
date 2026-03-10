@@ -261,7 +261,7 @@ export default function HeroSection() {
               </div>
             )}
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form id= "heroLeadForm" className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-[#1a1a1a] mb-2">
                   Name

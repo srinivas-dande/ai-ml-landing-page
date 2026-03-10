@@ -136,7 +136,7 @@ export default function BrochureSection() {
 
           <div className="w-full lg:w-[500px] bg-white rounded-2xl shadow-sm p-8">
 
-            <form id="brochure-form" className="space-y-6" onSubmit={handleSubmit}>
+            <form id="brochureDownloadForm" className="space-y-6" onSubmit={handleSubmit}>
 
               <div>
                 <label className="block text-gray-700 text-sm font-medium mb-2">
