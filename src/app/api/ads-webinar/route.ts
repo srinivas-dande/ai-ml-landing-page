@@ -52,9 +52,9 @@ export async function POST(req: Request) {
     })
 
     await transporter.sendMail({
-      from: `"Webinar Lead" <${process.env.EMAIL_USER}>`,
+      from: `"Dandes Academy" <${process.env.EMAIL_USER}>`,
       to: ["inbound@pipelinevelocity.com", "hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
-      subject: "New AI/ML Webinar Registration",
+      subject: `New Ad Lead - ${fullName} - AI/ML Webinar Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
           <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
             AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
           </h3>
 
-          <p><strong>📅 Date: 12th March 2026 (Thursday)</strong></p>
+          <p><strong>📅 Date: 26th March 2026 (Thursday)</strong></p>
           <p><strong>⏰ Time: 8:00 PM IST</strong></p>
           <p><strong>📍 Mode: Live Online Session</strong></p>
 

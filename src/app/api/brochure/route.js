@@ -62,7 +62,7 @@ export async function POST(req) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: "New AI/ML Brochure Download",
+      subject: `New Ad Lead - ${fullName} - AI/ML Brochure Download`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
           <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
