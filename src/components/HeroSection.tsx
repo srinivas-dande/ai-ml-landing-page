@@ -84,6 +84,12 @@ export default function HeroSection() {
       const data = await res.json()
 
       if (data.success) {
+
+        // ✅ LinkedIn conversion tracking
+        if (window.lintrk) {
+          window.lintrk('track', { conversion_id: 24845812 });
+        }
+
         setSuccessMsg("You are registered successfully for the webinar!")
 
         setFormData({
@@ -93,7 +99,10 @@ export default function HeroSection() {
         })
       } else {
         alert(data.message || "Something went wrong")
+      
       }
+
+  
     } catch (error) {
       console.error(error)
       alert("Something went wrong. Please try again.")

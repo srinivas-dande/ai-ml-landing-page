@@ -85,6 +85,11 @@ export default function BrochureSection() {
 
     if (data.success) {
 
+      // ✅ LinkedIn conversion tracking
+      if (window.lintrk) {
+        window.lintrk('track', { conversion_id: 24845812 });
+      }
+
       const link = document.createElement("a")
       link.href = data.fileUrl
       link.download = ""
