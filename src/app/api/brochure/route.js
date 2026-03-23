@@ -46,6 +46,32 @@ export async function POST(req) {
       }
     })
 
+
+    
+    try {
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZmMDYzMjA0MzE1MjZlNTUzNzUxMzQi_pc", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          utm_term,
+          utm_content,
+          landing_page,
+          gclid,
+          source: "Brochure Download Form"
+        }),
+      });
+    } catch (err) {
+      console.error("Webhook error (Brochure):", err);
+    }
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {

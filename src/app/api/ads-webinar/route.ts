@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const body = await req.json()
 
     const {
-      fullName,
+      full_name,
       email,
       phone,
       utm_source,
@@ -17,18 +17,34 @@ export async function POST(req: Request) {
       utm_content,
       landing_page,
       gclid,
+      page_url,
+      form_type,
+      created_at,
+      lead_stage
     } = body
 
-    if (!fullName || !email || !phone) {
+    if (!full_name || !email || !phone) {
       return NextResponse.json(
         { success: false, message: "Name, email and phone are required" },
         { status: 400 }
       )
     }
 
-    const lead = await prisma.adsOnWebinar.create({
+    const now = new Date();
+    const formattedIST = new Date(
+      now.getTime() + (5.5 * 60 * 60 * 1000)
+    ).toLocaleString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    const lead = await prisma.daAdsLeads.create({
       data: {
-        fullName,
+        full_name,
         email,
         phone,
         utm_source: utm_source || null,
@@ -38,10 +54,44 @@ export async function POST(req: Request) {
         utm_content: utm_content || null,
         landing_page: landing_page || null,
         gclid: gclid || null,
-        status: "active",
-      },
-      
+        page_url: page_url || null,
+
+    
+        form_type: form_type || "Webinar Registration",
+        created_at: created_at ? new Date(created_at) : new Date(),
+        lead_stage: lead_stage || "New Lead"
+      }
     })
+
+    try {
+      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZmMDYzMjA0MzE1MjZlNTUzNzUxMzAi_pc", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          full_name,
+          email,
+          phone,
+
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          utm_term,
+          utm_content,
+          gclid,
+
+          landing_page,
+          page_url,
+
+          form_type: "Webinar Registration",
+          created_at: formattedIST,
+          lead_stage: "New Lead"
+        }),
+      });
+    } catch (err) {
+      console.error("Webhook error (Webinar Registration):", err);
+    }
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -53,8 +103,8 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Dandes Academy" <${process.env.EMAIL_USER}>`,
-      to: ["inbound@pipelinevelocity.com", "hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
-      subject: `New Ad Lead - ${fullName} - AI/ML Webinar Registration`,
+      to: ["hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
+      subject: `New Ad Lead - ${full_name} - AI/ML Webinar Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
           <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
@@ -65,7 +115,7 @@ export async function POST(req: Request) {
             <table style="width:100%; border-collapse:collapse; font-size:14px;">
               <tr>
                 <td style="padding:8px; font-weight:bold;">Name</td>
-                <td style="padding:8px;">${fullName}</td>
+                <td style="padding:8px;">${full_name}</td>
               </tr>
 
               <tr>
@@ -112,6 +162,38 @@ export async function POST(req: Request) {
                 <td style="padding:8px; font-weight:bold;">Landing Page</td>
                 <td style="padding:8px;">${landing_page || "-"}</td>
               </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Page URL</td>
+                <td style="padding:8px;">${page_url || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Form Type</td>
+                <td style="padding:8px;">${form_type || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Lead Stage</td>
+                <td style="padding:8px;">${lead_stage || "-"}</td>
+              </tr>
+
+              <tr>
+                <td style="padding:8px; font-weight:bold;">Created Time</td>
+                <td style="padding:8px;">
+                  ${lead.created_at.toLocaleString("en-IN", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true,
+                  })}
+                </td>
+              </tr>
+
+
+  
             </table>
 
             <hr style="margin:20px 0; border:none; border-top:1px solid #eee;" />
@@ -131,7 +213,7 @@ export async function POST(req: Request) {
       subject: "Webinar Registration Confirmed – See You Live | Dandes Academy",
       html: `
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
-          <h2 style="color:#111;">Hello ${fullName || "there"},</h2>
+          <h2 style="color:#111;">Hello ${full_name || "there"},</h2>
 
           <p>Thank you for registering for our upcoming webinar:</p>
 

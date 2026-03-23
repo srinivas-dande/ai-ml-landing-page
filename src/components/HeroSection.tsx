@@ -58,7 +58,7 @@ export default function HeroSection() {
     const params = new URLSearchParams(window.location.search)
 
     const payload = {
-      fullName: formData.fullName,
+      full_name: formData.fullName,
       email: formData.email,
       phone: formData.phone,
 
@@ -70,7 +70,13 @@ export default function HeroSection() {
       gclid: params.get("gclid") || "",
 
       landing_page: window.location.pathname,
+      page_url: window.location.href,
+
+      form_type: "Webinar Registration",
+      created_at: new Date(),
+      lead_stage: "New Lead"
     }
+
 
     try {
       const res = await fetch("/api/ads-webinar", {

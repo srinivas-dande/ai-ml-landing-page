@@ -176,14 +176,14 @@ model UserLoginDetails {
   status     String?   @default("active") @db.VarChar(20)
 }
 
-/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+
 model Webinar_Feedback {
   id                BigInt    @id @default(autoincrement())
   fullName          String    @db.VarChar(100)
   email             String    @db.VarChar(150)
   whatsappNumber    String    @db.VarChar(20)
   webinarRating     Int
-  clarityLevel      String    @db.VarChar(30)
+  clarityLevel      String?    @db.VarChar(30)
   helpfulParts      String[]
   targetRoles       String[]
   biggestChallenges String[]
@@ -280,8 +280,39 @@ model AdsOnWebinar {
   landing_page String?
   gclid        String?
 
-  status       String   @default("active")
-  createdAt    DateTime @default(now())
+  pageUrl      String?   @map("page_url")        
+  formType     String?   @map("form_type")       
+
+  createdAt    DateTime? @map("createdAt")  
+      
+  createdAtIst DateTime? @map("created_at_ist")  
+
+  status       String    @default("active")
 
   @@map("Ads_Leads")
+}
+
+model DaAdsLeads {
+  lead_id      Int      @id @default(autoincrement())
+  full_name    String?  @db.VarChar(255)
+  email        String?  @db.VarChar(255)
+  phone        String?  @db.VarChar(20)
+
+  utm_source   String?  @db.VarChar(255)
+  utm_medium   String?  @db.VarChar(255)
+  utm_campaign String?  @db.VarChar(255)
+  utm_term     String?  @db.VarChar(255)
+  utm_content  String?  @db.VarChar(255)
+  gclid        String?  @db.VarChar(255)
+
+  landing_page String?
+  page_url     String?
+
+  form_type    String?  @db.VarChar(100)
+
+  created_at   DateTime @default(now())
+
+  lead_stage   String?  @db.VarChar(100)
+
+  @@map("da_ads_leads")
 }
