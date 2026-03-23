@@ -59,7 +59,7 @@ export default function BrochureSection() {
     const params = new URLSearchParams(window.location.search)
 
     const payload = {
-      fullName: formData.fullName,
+      full_name: formData.fullName,
       email: formData.email,
       phone: formData.phone,
 
@@ -70,7 +70,12 @@ export default function BrochureSection() {
       utm_content: params.get("utm_content") || "",
       gclid: params.get("gclid") || "",
 
-      landing_page: window.location.pathname
+      landing_page: window.location.pathname,
+      page_url: window.location.href,
+
+      form_type: "Brochure Download Form",
+      created_at: new Date(),
+      lead_stage: "New Lead"
     }
 
     const res = await fetch("/api/brochure", {

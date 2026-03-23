@@ -30,17 +30,7 @@ export async function POST(req: Request) {
       )
     }
 
-    const now = new Date();
-    const formattedIST = new Date(
-      now.getTime() + (5.5 * 60 * 60 * 1000)
-    ).toLocaleString("en-IN", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
+  
 
     const lead = await prisma.daAdsLeads.create({
       data: {
@@ -57,14 +47,14 @@ export async function POST(req: Request) {
         page_url: page_url || null,
 
     
-        form_type: form_type || "Webinar Registration",
+        form_type: form_type || "Website Registration",
         created_at: created_at ? new Date(created_at) : new Date(),
         lead_stage: lead_stage || "New Lead"
       }
     })
 
     try {
-      await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZmMDYzMjA0MzE1MjZlNTUzNzUxMzAi_pc", {
+      const webhookRes = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZmMDYzMjA0MzE1MjZlNTUzNzUxMzAi_pc", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,11 +74,16 @@ export async function POST(req: Request) {
           landing_page,
           page_url,
 
-          form_type: "Webinar Registration",
-          created_at: formattedIST,
+          form_type: "Website Registration Form",
+          created_at,
           lead_stage: "New Lead"
         }),
       });
+
+      const text = await webhookRes.text();
+
+      console.log("Webhook status:", webhookRes.status);
+      console.log("Webhook response:", text);
     } catch (err) {
       console.error("Webhook error (Webinar Registration):", err);
     }
@@ -103,7 +98,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Dandes Academy" <${process.env.EMAIL_USER}>`,
-      to: ["hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
+      to: ["inbound@pipelinevelocity.com","hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
       subject: `New Ad Lead - ${full_name} - AI/ML Webinar Registration`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">

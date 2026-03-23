@@ -72,7 +72,7 @@ export default function HeroSection() {
       landing_page: window.location.pathname,
       page_url: window.location.href,
 
-      form_type: "Webinar Registration",
+      form_type: "Website Registration Form",
       created_at: new Date(),
       lead_stage: "New Lead"
     }
