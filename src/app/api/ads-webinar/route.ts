@@ -74,7 +74,7 @@ export async function POST(req: Request) {
           landing_page,
           page_url,
 
-          form_type: "Website Registration Form",
+          form_type: "Website Registration",
           created_at,
           lead_stage: "New Lead"
         }),
