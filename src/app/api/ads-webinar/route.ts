@@ -216,7 +216,7 @@ export async function POST(req: Request) {
             AI Career Switch Blueprint – How Software Engineers Are Transitioning to AI/ML Roles
           </h3>
 
-          <p><strong>📅 Date: 14th May 2026 (Thursday)</strong></p>
+          <p><strong>📅 Date: 21st May 2026 (Thursday)</strong></p>
           <p><strong>⏰ Time: 8:00 PM IST</strong></p>
           <p><strong>📍 Mode: Live Online Session</strong></p>
 
