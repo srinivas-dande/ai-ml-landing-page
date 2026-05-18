@@ -58,7 +58,7 @@ export async function POST(req) {
 
     
     try {
-      const webhookRes = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTZmMDYzMjA0MzE1MjZlNTUzNzUxMzQi_pc", {
+      const webhookRes = await fetch("https://connect.pabbly.com/webhook-listener/webhook/IjU3NjIwNTY0MDYzMTA0MzA1MjZkNTUzZCI_3D_pc/IjU3NjcwNTZlMDYzMDA0MzA1MjZjNTUzNjUxMzQi_pc", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
