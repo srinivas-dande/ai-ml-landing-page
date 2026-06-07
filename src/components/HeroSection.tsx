@@ -159,9 +159,11 @@ export default function HeroSection() {
   }, [webinarTime])
 
   const benefits = [
-    "Real-World Projects That Employers Value",
-    "Assignments, Mini projects and one end-to-end Capstone",
-    "Resume Review + Mock Interviews — Interview-Ready",
+    "Live Online Classes + LMS Access + Doubt Support",
+    "Assignments, Mini Projects & End-to-End Capstone Project",
+    "Machine Learning, Deep Learning, NLP, GenAI/LLMs, Agentic AI & MLOps",
+    "Resume Review, Mock Interviews & Career Guidance",
+    "25,000+ Students Trained | 20+ Years of Industry Experience",
   ]
 
   return (

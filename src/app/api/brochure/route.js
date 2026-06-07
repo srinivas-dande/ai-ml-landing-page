@@ -216,7 +216,6 @@ export async function POST(req) {
 
         <p>Thank you for your interest in our AI & Machine Learning program.</p>
 
-        <p>You can download the brochure using the link provided on the page.</p>
 
         <p>Inside the brochure you will find:</p>
 
@@ -226,10 +225,13 @@ export async function POST(req) {
           <li>Projects and learning roadmap</li>
         </ul>
 
-        <p>If you have any questions, feel free to reply to this email.</p>
 
-        <p>Regards,<br/>
-        Dandes Academy</p>
+        <p>
+          Regards,<br/>
+          <strong>Srinivas Dande</strong><br/>
+          Founder & Lead Trainer<br/>
+          Dandes Academy
+        </p>
       `
     })
 
