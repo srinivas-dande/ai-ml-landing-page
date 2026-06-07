@@ -125,7 +125,7 @@ export default function BrochureSection() {
 
   return (
     <section 
-      id="brochure-form"
+      
       className="bg-[#F5F7FA] py-16 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-[70px]">
 

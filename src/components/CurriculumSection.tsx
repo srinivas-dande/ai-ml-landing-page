@@ -86,12 +86,13 @@ export default function CurriculumSection() {
 
           <button
             onClick={() =>
-              document.getElementById("brochure-form")?.scrollIntoView({ behavior: "smooth" })
+            document
+              .getElementById("brochureDownloadForm")
+              ?.scrollIntoView({ behavior: "smooth" })
             }
             className="bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-3 transition-colors"
           >
             Get Detailed Syllabus
-            <ArrowRight className="w-4 h-4" />
           </button>
           
         </div>
