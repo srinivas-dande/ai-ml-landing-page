@@ -47,7 +47,7 @@ export async function POST(req: Request) {
         page_url: page_url || null,
 
     
-        form_type: form_type || "Website Registration",
+        form_type: form_type || "Demo Registration",
         created_at: created_at ? new Date(created_at) : new Date(),
         lead_stage: lead_stage || "New Lead"
       }

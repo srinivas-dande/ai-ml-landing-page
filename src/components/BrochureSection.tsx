@@ -73,7 +73,7 @@ export default function BrochureSection() {
       landing_page: window.location.pathname,
       page_url: window.location.href,
 
-      form_type: "Brochure Download Form",
+      form_type: "Brochure Download",
       created_at: new Date(),
       lead_stage: "New Lead"
     }

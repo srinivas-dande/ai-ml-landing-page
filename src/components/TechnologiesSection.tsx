@@ -91,7 +91,7 @@ export default function TechnologiesSection() {
             }
             className="bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-3 transition-colors"
           >
-            Register For Free
+            Register For More details
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

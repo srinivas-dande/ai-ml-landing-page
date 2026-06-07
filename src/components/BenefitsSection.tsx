@@ -32,7 +32,7 @@ export default function BenefitsSection() {
             <h2 className="text-3xl lg:text-4xl font-bold text-[#1a1a1a] leading-tight mb-8">
               What changes after{' '}
               <br />
-              this <span className="text-[#C41E3A]">webinar</span>
+              this <span className="text-[#C41E3A]">Demo</span>
             </h2>
             <button
               onClick={() =>
@@ -40,7 +40,7 @@ export default function BenefitsSection() {
             }
               className="bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-3 transition-colors"
             >
-              Register For Free
+              Register For More details
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

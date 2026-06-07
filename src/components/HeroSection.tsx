@@ -72,7 +72,7 @@ export default function HeroSection() {
       landing_page: window.location.pathname,
       page_url: window.location.href,
 
-      form_type: "Website Registration Form",
+      form_type: "Demo Registration",
       created_at: new Date(),
       lead_stage: "New Lead"
     }
@@ -169,15 +169,19 @@ export default function HeroSection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-[70px] py-0">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <div className="flex-1">
-            <p className="text-[#C41E3A] text-sm font-medium mb-2">
-              Free Webinar | For Students & Working Professionals
-            </p>
+            
 
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-2">
-              <span className="text-[#C41E3A]">AI/ML</span>{" "}
-              <span className="text-[#1a1a1a]">Career</span>
-              <br />
-              <span className="text-[#1a1a1a]">Roadmap Webinar</span>
+              <span className=" text #d12027 block text-3xl sm:text-4xl lg:text-5xl " style={{ color:"#AD1612" }}>
+                SWITCH TO
+              </span>
+
+              <span
+                className="block whitespace-nowrap font-bold"
+                style={{ fontSize: "2.7rem" }}
+              >
+                HIGH-PAYING AI/ML ROLES
+              </span>
             </h1>
 
             <p className="text-[#4a4a4a] text-base leading-relaxed mb-8 max-w-xl">
@@ -201,7 +205,7 @@ export default function HeroSection() {
 
             <div>
               <h3 className="text-lg font-bold text-[#1a1a1a] mb-4">
-                Next Webinar Starts in
+                NEW BATCH DEMO STARTS IN
               </h3>
 
               <div className="flex gap-4 mt-2">
@@ -241,17 +245,15 @@ export default function HeroSection() {
             className="w-full lg:w-[480px] bg-white rounded-lg shadow-lg p-8"
           >
             <h2 className="text-xl font-bold text-[#1a1a1a] mb-1">
-              Free AI & Machine Learning Webinar
+              Get course fee, syllabus, and next batch details
             </h2>
 
             <p className="text-sm text-[#4a4a4a] leading-relaxed mb-2">
-              Free AI/ML webinar for Professionals and Job Seekers to learn career
-              roadmap, and how to start AI & Machine Learning with industry-focused
-              training.
+              Fill this once, and we will share course details on WhatsApp, email, or call you back.
             </p>
 
             <p className="text-sm text-[#4a4a4a] mb-3">
-              Join the live session on{" "}
+              Join the New Batch Demo on{" "}
               <span className="font-bold text-[#1a1a1a]">
                 {webinarTime
                   ? webinarTime.toLocaleString("en-IN", {
@@ -330,7 +332,7 @@ export default function HeroSection() {
                 className={`bg-[#C41E3A] hover:bg-[#a31830] text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2 transition-colors
                 ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
               >
-                {loading ? "Registering..." : "Register for FREE AI/ML Webinar"}
+                {loading ? "Registering..." : "Register for More details"}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>

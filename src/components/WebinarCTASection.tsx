@@ -35,10 +35,10 @@ export default function WebinarCTASection() {
             <div className="flex items-center gap-4 mb-6">
               <span className="inline-flex items-center gap-2 bg-[#b01c2e] text-white text-sm font-medium px-3 py-1.5 rounded">
                 <span className="w-2 h-2 bg-white rounded-sm"></span>
-                Webinar
+                NEW BATCH DEMO
               </span>
               <span className="text-white font-medium tracking-wide text-sm md:text-base">
-                MAR 12 | THURSDAY | 8:00PM.
+                JUNE 18 | THURSDAY | 8:00PM.
               </span>
             </div>
 
@@ -60,7 +60,7 @@ export default function WebinarCTASection() {
               }
                 className="bg-white text-gray-900 font-semibold px-6 py-3 rounded flex items-center gap-4 hover:bg-gray-100 transition-colors mb-6"
             >
-              JOIN FOR FREE
+              REGISTER FOR More details
               <ChevronRight className="w-5 h-5" />
             </button>
 
