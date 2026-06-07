@@ -221,7 +221,7 @@ export async function POST(req) {
 
         <ul>
           <li>Complete AI/ML course curriculum</li>
-          <li>15 detailed modules</li>
+          <li>16 detailed modules</li>
           <li>Projects and learning roadmap</li>
         </ul>
 
