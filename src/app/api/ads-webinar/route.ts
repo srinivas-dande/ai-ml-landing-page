@@ -213,7 +213,6 @@ export async function POST(req: Request) {
           <p>Thank you for your interest in our AI & Machine Learning Program:</p>
           <p>We're glad you reached out.</p>
 
-
           <p><strong>Here's what happens next:</strong></p>
 
           <ul style="padding-left: 20px;">
