@@ -84,8 +84,6 @@ export default function CurriculumSection() {
         <div className="flex justify-center mt-12">
 
 
-
-
           <button
             onClick={() =>
               document.getElementById("brochure-form")?.scrollIntoView({ behavior: "smooth" })

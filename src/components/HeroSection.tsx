@@ -96,7 +96,7 @@ export default function HeroSection() {
           window.lintrk('track', { conversion_id: 24845812 });
         }
 
-        setSuccessMsg("You are registered successfully for the webinar!")
+        setSuccessMsg("You are registered successfully")
 
         setFormData({
           fullName: "",

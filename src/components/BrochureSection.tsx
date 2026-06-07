@@ -124,7 +124,9 @@ export default function BrochureSection() {
 }
 
   return (
-    <section className="bg-[#F5F7FA] py-16 md:py-24">
+    <section 
+      id="brochure-form"
+      className="bg-[#F5F7FA] py-16 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-[70px]">
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
