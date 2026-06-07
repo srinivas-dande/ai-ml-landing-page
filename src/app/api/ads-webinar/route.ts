@@ -210,7 +210,7 @@ export async function POST(req: Request) {
         <div style="font-family: Arial, sans-serif; font-size:15px; line-height: 1.6; color: #333;">
           <h2 style="color:#111;">Hello ${full_name || "there"},</h2>
 
-          <p>Thank you for your interest in our AI & Machine Learning Program:</p>
+          <p>Thank you for your interest in our <b>AI & Machine Learning Program:</b></p>
           <p>We're glad you reached out.</p>
 
           <p><strong>Here's what happens next:</strong></p>
