@@ -99,12 +99,12 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: `"Dandes Academy" <${process.env.EMAIL_USER}>`,
       to: ["inbound@pipelinevelocity.com","hello@dandesacademy.com", "chaitanya@dandesacademy.com", "swetha@dandesacademy.com"],
-      subject: `New Ad Lead - ${full_name} - AI/ML Demo Registration`,
+      subject: `New Google Lead - ${full_name} - AI & Machine Learning Program`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
           <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
             <h2 style="color:#C41E3A; margin-bottom:20px;">
-              New AI/ML Demo Registration
+              New AI & Machine Learning Program
             </h2>
 
             <table style="width:100%; border-collapse:collapse; font-size:14px;">
