@@ -108,12 +108,12 @@ export async function POST(req) {
         "chaitanya@dandesacademy.com",
         "swetha@dandesacademy.com"
       ],
-      subject: `New Ad Lead - ${full_name} - AI/ML Brochure Download`,
+      subject: `New Google Lead - ${full_name} - AI/ML Brochure Download`,
       html: `
         <div style="font-family: Arial, sans-serif; background:#f5f7fa; padding:30px;">
           <div style="max-width:520px; margin:auto; background:#ffffff; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
             <h2 style="color:#C41E3A; margin-bottom:20px;">
-              New AI/ML Webinar Registration
+              New AI/ML Brochure Download
             </h2>
 
             <table style="width:100%; border-collapse:collapse; font-size:14px;">
